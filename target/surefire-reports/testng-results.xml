@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-09-24T09:57:16 IST" name="ReportIndexTestSuite" finished-at="2021-09-24T10:03:19 IST" duration-ms="363095">
+    <groups>
+    </groups>
+    <test started-at="2021-09-24T09:57:16 IST" name="Test" finished-at="2021-09-24T10:03:19 IST" duration-ms="363095">
+      <class name="RMSV2.RMSCustomerPortal.RMS_Login_out">
+        <test-method is-config="true" signature="initialise()[pri:0, instance:RMSV2.RMSCustomerPortal.RMS_Login_out@6d1d4d7]" started-at="2021-09-24T09:57:16 IST" name="initialise" finished-at="2021-09-24T09:57:30 IST" duration-ms="14030" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialise -->
+        <test-method signature="login()[pri:1, instance:RMSV2.RMSCustomerPortal.RMS_Login_out@6d1d4d7]" started-at="2021-09-24T09:58:33 IST" name="login" finished-at="2021-09-24T09:58:54 IST" duration-ms="20478" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="logout()[pri:2, instance:RMSV2.RMSCustomerPortal.RMS_Login_out@6d1d4d7]" started-at="2021-09-24T09:58:54 IST" name="logout" finished-at="2021-09-24T09:59:07 IST" duration-ms="13732" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method is-config="true" signature="terminate()[pri:0, instance:RMSV2.RMSCustomerPortal.RMS_Login_out@6d1d4d7]" started-at="2021-09-24T09:59:07 IST" name="terminate" finished-at="2021-09-24T09:59:11 IST" duration-ms="4186" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminate -->
+      </class> <!-- RMSV2.RMSCustomerPortal.RMS_Login_out -->
+      <class name="RMSV2.RMSCustomerPortal.indexreportrequest">
+        <test-method is-config="true" signature="browser()[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T09:57:30 IST" name="browser" finished-at="2021-09-24T09:58:33 IST" duration-ms="63429" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browser -->
+        <test-method signature="login()[pri:1, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T09:59:11 IST" name="login" finished-at="2021-09-24T10:00:00 IST" duration-ms="48980" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="PatientDetails(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:00:00 IST" name="PatientDetails" data-provider="testData" finished-at="2021-09-24T10:00:56 IST" depends-on-methods="RMSV2.RMSCustomerPortal.indexreportrequest.login" duration-ms="55379" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Autotest ]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[987456321]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8/4/1990]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Times square street]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[New York]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[10001]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[9874563121]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PatientDetails -->
+        <test-method signature="ChooseRetrievalOptions(java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:00:56 IST" name="ChooseRetrievalOptions" data-provider="testData" finished-at="2021-09-24T10:01:24 IST" depends-on-methods="RMSV2.RMSCustomerPortal.indexreportrequest.PatientDetails" duration-ms="28253" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[9/30/2021]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Appointment]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Dr.AnandKumar]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[New Patient Consultation]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChooseRetrievalOptions -->
+        <test-method signature="uploadfiles(java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:01:24 IST" name="uploadfiles" data-provider="testData" finished-at="2021-09-24T10:02:02 IST" depends-on-methods="RMSV2.RMSCustomerPortal.indexreportrequest.ChooseRetrievalOptions" duration-ms="37502" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Records]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadfiles -->
+        <test-method signature="indexOnlyrequest()[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:02:02 IST" name="indexOnlyrequest" finished-at="2021-09-24T10:02:46 IST" depends-on-methods="RMSV2.RMSCustomerPortal.indexreportrequest.uploadfiles" duration-ms="44053" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- indexOnlyrequest -->
+        <test-method signature="searchrequest()[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:02:46 IST" name="searchrequest" finished-at="2021-09-24T10:03:18 IST" depends-on-methods="RMSV2.RMSCustomerPortal.indexreportrequest.indexOnlyrequest" duration-ms="32572" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchrequest -->
+        <test-method is-config="true" signature="browserclose()[pri:0, instance:RMSV2.RMSCustomerPortal.indexreportrequest@464649c]" started-at="2021-09-24T10:03:18 IST" name="browserclose" finished-at="2021-09-24T10:03:19 IST" duration-ms="429" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- browserclose -->
+      </class> <!-- RMSV2.RMSCustomerPortal.indexreportrequest -->
+    </test> <!-- Test -->
+  </suite> <!-- ReportIndexTestSuite -->
+</testng-results>
