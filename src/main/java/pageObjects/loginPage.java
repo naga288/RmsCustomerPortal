@@ -47,11 +47,9 @@ public class loginPage {
 		return password;
 	
 	}
-	public homePage signin() {
+	public WebElement signin() {
 		
-		 signin.click();
-		 return new homePage(driver);
-	
+	return signin;
 	}	
 
 	public WebElement login_errmsg() {

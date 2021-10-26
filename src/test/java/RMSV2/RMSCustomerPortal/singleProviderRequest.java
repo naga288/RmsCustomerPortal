@@ -9,9 +9,11 @@ import org.testng.annotations.Test;
 import resources.dataproviders;
 import resources.driverClass;
 
+
 public class singleProviderRequest extends driverClass {
 	public static WebDriver driver;
 	RMS_request_methods request = new RMS_request_methods();
+	ProviderRequestMethods Provider_request = new ProviderRequestMethods();
 
 //public static Logger log=LogManager.getLogger("INdexOnlyRequest");
 
@@ -25,7 +27,7 @@ public class singleProviderRequest extends driverClass {
 	@Test(priority = 1)
 	public void login() throws IOException, InterruptedException {
 		RMS_access_methods signin = new RMS_access_methods();
-		signin.login(driver, RMS_access_methods.username, RMS_access_methods.password);
+		signin.login(driver);
 
 	}
 
@@ -44,29 +46,30 @@ public class singleProviderRequest extends driverClass {
 		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
 	}
 
-	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = {
+	@Test( dependsOnMethods = {
 			"ChooseRetrievalOptions" })
-	public void uploadfiles(String filetype) throws InterruptedException, IOException {
+	public void uploadfilesNext() throws InterruptedException, IOException {
 		log.info("Uploading the files");
-		request.uploadfiles(driver, filetype);
+		request.uploadfilesNext(driver);
 	}
 
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = {
-	"uploadfiles" })
-	public void singleProviderReq(String facilityName,String state, String city) throws InterruptedException {
-		request.singleProvider(driver, facilityName, state, city);
+	"uploadfilesNext" })
+	public void singleLocationProvider(String facilityName,String state, String city, String rec_template,String img_template, String path_template, String LocationType) throws InterruptedException {
+		Provider_request.singleLocationProvider(driver, facilityName, state, city, rec_template, img_template, path_template,LocationType);
 		
 	}
-	/*@Test(dependsOnMethods = { "singleProviderReq" })
-	public void searchrequest() throws InterruptedException, IOException {
-		log.info("Search created request");
-		String caseno = request.searchCreatedRequest(driver);
-		System.out.println("Case no : " + caseno);
-	}*/
 	
-//	@AfterTest
-//	public void browserclose() {
-//		driver.close();
-//	}
+	@Test(dependsOnMethods = {"singleLocationProvider" })
+	public void searchCreatedRequest() throws InterruptedException {
+		request.searchCreatedRequest(driver);
+	}
+	
+	
+	
+@AfterTest
+	public void browserclose() {
+		driver.close();
+	}
 
 }

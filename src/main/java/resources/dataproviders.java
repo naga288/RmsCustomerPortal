@@ -4,7 +4,8 @@ import java.lang.reflect.Method;
 
 import org.testng.annotations.DataProvider;
 
-public class dataproviders {
+public class dataproviders  {
+	 ExcelDataProvider excel=new ExcelDataProvider();
 	@DataProvider(name="testData")
     public Object[][] gettestData(Method m){
 		switch(m.getName()) {
@@ -20,21 +21,22 @@ public class dataproviders {
 		case "ChooseRetrievalOptions":
 			return new Object[][] 
 			    	{
-			            {"9/30/2021","Appointment","Dr.AnandKumar","New Patient Consultation"}
+			            {"10/30/2021","Appointment","Chiranjivi, Konidela","New Patient Consultation"}
 			        };
 		case "uploadfiles":	        
 			return new Object[][] 
 			    	{
 			            {"Records"}
 			        };
-		case "singleProviderReq":	        
+		case "singleLocationProvider":	        
 			return new Object[][] 
 			    	{
-			            {"Henry Hospital", "Illinois", "Chicago Ridge"}
+			            {"360 TRUCKING LLC", "Illinois", "Chicago Ridge" ,"Records Template", "Images template", "Pathology template", "ImageLocation"}
 			        };					
 	
 		}
 		return null;
 	}
 
+		
 }

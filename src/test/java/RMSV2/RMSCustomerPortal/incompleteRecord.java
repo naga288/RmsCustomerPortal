@@ -32,7 +32,7 @@ public class incompleteRecord extends driverClass{
 	@Test()
 	public void login() throws IOException, InterruptedException {
 		RMS_access_methods signin=new RMS_access_methods();
-		signin.login(driver, RMS_access_methods.username,  RMS_access_methods.password);
+		signin.login(driver);
 		
 	}
 	

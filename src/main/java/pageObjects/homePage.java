@@ -19,7 +19,7 @@ public class homePage {
 	//private String element = "//div[@class='topblue']/span[contains(text(),'PATIENT DEMOGRAPHICS')]";
 
 	@FindBy(id="MainContent_lnName")
-	WebElement dahsboard;
+	WebElement dashboard;
 	@FindBy(xpath="//div[contains(@id,'RecordsTabPage')]") WebElement RecordsTabPage;
 	@FindBy(xpath="//a[contains(text(),' Add New Patient')]")
 	WebElement addpatient;
@@ -33,8 +33,8 @@ public class homePage {
 	@FindBy(linkText="Logout")
 	WebElement Logout;
 
-	public WebElement dahsboard() {
-		return dahsboard;
+	public WebElement dashboard() {
+		return dashboard;
 	}
 
 	public WebElement addpatient() {

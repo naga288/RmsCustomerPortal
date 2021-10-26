@@ -8,8 +8,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +20,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 public class driverClass {
 	public  WebDriver driver;
 	public Properties prop;
-	public static Logger log=LogManager.getLogger();
+	public static Logger log=Logger.getLogger("testlog");
 	public static String userdir=System.getProperty("user.dir");
 
 	public WebDriver intializedriver() throws IOException {
@@ -68,7 +67,8 @@ public class driverClass {
 	public String getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		String destinationFile=userdir+"\\reports\\"+testCaseName+".png";
-		FileUtils.copyFile(src, new File(destinationFile));
+		FileUtils.copyFile(src, new File(
+	destinationFile));
 		return destinationFile;
 
 	}
