@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,11 +14,10 @@ public class loginPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	By loginscreen=By.xpath("//input[contains(@id,'UserName')]");
-
 	
-	//@FindBy(xpath="//div[@class='login-graphic']")
-	//WebElement loginscreen;
+	
+	@FindBy(xpath="//div[@class='login-graphic']")
+	WebElement loginscreen;
 	
 	@FindBy(xpath="//input[contains(@id,'UserName')]")
 	WebElement username;
@@ -35,7 +33,7 @@ public class loginPage {
 	
 	
 	public WebElement loginScreen() {
-		return driver.findElement(loginscreen);
+		return loginscreen;
 	
 	}
 

@@ -13,7 +13,7 @@ public class RMS_Login_out extends driverClass {
 	public static WebDriver driver;
 	
 	@BeforeTest
-	public void initialise() throws IOException {
+	public void initialise() throws Exception {
 		driver=intializedriver();
 		
 	}

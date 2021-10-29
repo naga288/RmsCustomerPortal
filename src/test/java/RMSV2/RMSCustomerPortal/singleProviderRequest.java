@@ -18,10 +18,9 @@ public class singleProviderRequest extends driverClass {
 //public static Logger log=LogManager.getLogger("INdexOnlyRequest");
 
 	@BeforeTest
-	public void browser() throws IOException {
+	public void browser() throws Exception {
 		driver = intializedriver();
-		log.info("Driver is initialised");
-
+	
 	}
 
 	@Test(priority = 1)
@@ -34,7 +33,6 @@ public class singleProviderRequest extends driverClass {
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = { "login" })
 	public void PatientDetails(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum) throws InterruptedException, IOException {
-		log.info("Logged in to RMS portal successfully");
 		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);
 
 	}
@@ -42,14 +40,12 @@ public class singleProviderRequest extends driverClass {
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = { "PatientDetails" })
 	public void ChooseRetrievalOptions(String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest) throws InterruptedException, IOException {
-		log.info("Choosing the retrieval options");
 		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
 	}
 
 	@Test( dependsOnMethods = {
 			"ChooseRetrievalOptions" })
 	public void uploadfilesNext() throws InterruptedException, IOException {
-		log.info("Uploading the files");
 		request.uploadfilesNext(driver);
 	}
 

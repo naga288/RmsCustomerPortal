@@ -1,27 +1,17 @@
 package RMSV2.RMSCustomerPortal;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import jdk.internal.org.objectweb.asm.commons.Method;
 import pageObjects.homePage;
 import pageObjects.patientDigestPage;
 import pageObjects.patientProfilePage;
@@ -32,7 +22,7 @@ import pageObjects.templatePage;
 import pageObjects.uploadFilesPage;
 
 public class RMS_request_methods2 {
-	public static String firstName;
+	public static String first_Name;
 	public static String lastName;
 	public static String PatientName;
 	public static homePage home_page;
@@ -61,7 +51,7 @@ public class RMS_request_methods2 {
 		// Now format the date
 		String date1 = dateFormat.format(date);
 		lastName = date1;
-		System.out.println(home_page.dashboard().isDisplayed());
+		first_Name=firstName;
 		home_page.addpatient().click();
 		newpatientblock: while (true) {
 			if (profile_page.demographics().isDisplayed()) {
@@ -74,7 +64,7 @@ public class RMS_request_methods2 {
 		}
 
 		System.out.println("Checking for existing  Patient profiles");
-		profile_page.firstname().sendKeys(firstName);
+		profile_page.firstname().sendKeys(first_Name);
 		profile_page.lastname().sendKeys(lastName);
 		profile_page.checkextPatient().click();
 
@@ -297,31 +287,34 @@ public class RMS_request_methods2 {
 
 		dashboard: while (true) {
 			if (home_page.RecordsTabPage().isDisplayed()) {
+				System.out.println("Records tab page is displayed");
 				break dashboard;
 			} else {
+				
+				System.out.println("Ïn else loop");
 				Thread.sleep(1000);
 			}
 		}
 
 	}
-
 	public String searchCreatedRequest(WebDriver driver) throws InterruptedException {
-		PatientName = firstName + lastName;
+		PatientName = first_Name + lastName;
+		System.out.println("Searching the request");
 		dashboard: while (true) {
-			home_page.dashboard().click();
-			if (home_page.dashboard().isDisplayed()) {
+			if (home_page.RecordsTabPage().isDisplayed()) {
 				System.out.println("Dashboard page is displayed");
 				break dashboard;
 			} else {
 				// waits.WaitForElement(driver, dashboard);
+				System.out.println("Searching the request else loop");
 				Thread.sleep(1000);
 			}
 		}
 
-		home_page.PatientSearch().sendKeys(PatientName);
+		home_page.PatientSearch().sendKeys(lastName);
 
 		home_page.Search().click();
-
+		System.out.println("Searching started");
 		List<WebElement> results = home_page.SearchResults();
 		System.out.println("Seacrh completed. No.of patient records found: " + results.size());
 
@@ -346,7 +339,8 @@ public class RMS_request_methods2 {
 			if(casetxt.contains("Case")) {
 				break getcase;
 			}else {
-				Thread.sleep(1000);
+				driver.navigate().refresh();
+				Thread.sleep(5000);
 			}
 		}
 		String[] arrSplit = casetxt.split("\\s");
@@ -357,6 +351,14 @@ public class RMS_request_methods2 {
 		// prints the string after deleting the character
 		String caseno = cno.toString();
 		System.out.println("Case No for "+PatientName+" request is :"+caseno);
+		driver.findElement(By.xpath("//a[contains(@id,'Dashboard')]")).click();
+		DashboardLoop:while(true) {
+			if(home_page.RecordsTabPage().isDisplayed()) {
+				break DashboardLoop;
+			}else {
+				Thread.sleep(1000);
+			}
+		}
 		return caseno;
 	}
 

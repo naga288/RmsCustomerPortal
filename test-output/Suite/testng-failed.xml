@@ -11,8 +11,33 @@
           <include name="logout"/>
           <include name="initialise"/>
           <include name="browserclose"/>
+          <include name="login"/>
         </methods>
       </class> <!-- RMSV2.RMSCustomerPortal.RMS_Login_out -->
     </classes>
   </test> <!-- Login(failed) -->
+  <test thread-count="5" name="IndexOnly(failed)">
+    <classes>
+      <class name="RMSV2.RMSCustomerPortal.indexreportrequestExcelData">
+        <methods>
+          <include name="browserclose"/>
+          <include name="login"/>
+          <include name="browser"/>
+          <include name="PatientDetails"/>
+        </methods>
+      </class> <!-- RMSV2.RMSCustomerPortal.indexreportrequestExcelData -->
+    </classes>
+  </test> <!-- IndexOnly(failed) -->
+  <test thread-count="5" name="SingleLocation(failed)">
+    <classes>
+      <class name="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata">
+        <methods>
+          <include name="login"/>
+          <include name="PatientDetails"/>
+          <include name="browser"/>
+          <include name="browserclose"/>
+        </methods>
+      </class> <!-- RMSV2.RMSCustomerPortal.singleProviderRequestExceldata -->
+    </classes>
+  </test> <!-- SingleLocation(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -11,12 +11,12 @@
   </test> <!-- Test -->
    <test name="IndexOnly">
     <classes>
-	  <class name="RMSV2.RMSCustomerPortal.indexreportrequest"/> 
+	  <class name="RMSV2.RMSCustomerPortal.indexreportrequestExcelData"/> 
     </classes>
   </test> 
    <test name="SingleLocation">
     <classes>
-	        <class name="RMSV2.RMSCustomerPortal.singleProviderRequest"/> 
+	        <class name="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata"/> 
     </classes>
   </test> 
   

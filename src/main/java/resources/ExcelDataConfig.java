@@ -2,15 +2,12 @@ package resources;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelDataConfig {
-	XSSFWorkbook workbook;
-	XSSFSheet sheet;
+static 	XSSFWorkbook workbook;
+static 	XSSFSheet sheet;
 	public ExcelDataConfig(String Excelpath, String sheetName) throws Exception {
 try {
 	File src=new File(Excelpath);
@@ -28,7 +25,7 @@ try {
 	public int getRowCount() {
 		int rowcount=0;
 		try {
-			 rowcount=sheet.getLastRowNum();
+			 rowcount=sheet.getPhysicalNumberOfRows();
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -60,6 +57,17 @@ try {
 		return cellData;
 			
 		} 
+	
+	public double getCellDataNum(int RowNum,int ColNum) {
+		double cellData=0;
+		try {
+			cellData=sheet.getRow(RowNum).getCell(ColNum).getNumericCellValue();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cellData;
+	}
 		
 	}
 

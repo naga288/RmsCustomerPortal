@@ -15,7 +15,7 @@ public class indexreportrequest extends driverClass {
 	RMS_request_methods request = new RMS_request_methods();
 
 	@BeforeTest
-	public void browser() throws IOException {
+	public void browser() throws Exception {
 		driver = intializedriver();
 		
 	}
@@ -37,26 +37,22 @@ public class indexreportrequest extends driverClass {
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = { "PatientDetails" })
 	public void ChooseRetrievalOptions(String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest) throws InterruptedException, IOException {
-		log.info("Choosing the retrieval options");
 		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
 	}
 
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = {
 			"ChooseRetrievalOptions" })
 	public void uploadfiles(String filetype) throws InterruptedException, IOException {
-		log.info("Uploading the files");
 		request.uploadfiles(driver, filetype);
 	}
 
 	@Test(dependsOnMethods = { "uploadfiles" })
 	public void indexOnlyrequest() throws InterruptedException, IOException {
-		log.info("index Only request");
 		request.indexOnlyrequest(driver);
 	}
 
 	@Test(dependsOnMethods = { "indexOnlyrequest" })
 	public void searchCreatedRequest() throws InterruptedException, IOException {
-		log.info("Search created request");
 		request.searchCreatedRequest(driver);
 	}
 

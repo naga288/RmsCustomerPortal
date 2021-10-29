@@ -49,7 +49,6 @@ public class RMS_request_methods {
 		// Now format the date
 		String date1 = dateFormat.format(date);
 		lastName = date1;
-		System.out.println(home_page.dashboard().isDisplayed());
 		home_page.addpatient().click();
 		newpatientblock: while (true) {
 			if (profile_page.demographics().isDisplayed()) {
@@ -296,8 +295,8 @@ public class RMS_request_methods {
 	public String searchCreatedRequest(WebDriver driver) throws InterruptedException {
 		PatientName = firstName + lastName;
 		dashboard: while (true) {
-			home_page.dashboard().click();
-			if (home_page.dashboard().isDisplayed()) {
+			home_page.dashboardbutton().click();
+			if (home_page.RecordsTabPage().isDisplayed()) {
 				System.out.println("Dashboard page is displayed");
 				break dashboard;
 			} else {

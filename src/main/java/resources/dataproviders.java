@@ -5,7 +5,6 @@ import java.lang.reflect.Method;
 import org.testng.annotations.DataProvider;
 
 public class dataproviders  {
-	 ExcelDataProvider excel=new ExcelDataProvider();
 	@DataProvider(name="testData")
     public Object[][] gettestData(Method m){
 		switch(m.getName()) {
