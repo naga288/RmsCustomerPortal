@@ -339,9 +339,9 @@ public class RMS_request_methods2 {
 			if(casetxt.contains("Case")) {
 				break getcase;
 			}else {
-				driver.navigate().refresh();
 				Thread.sleep(5000);
-			}
+				driver.navigate().refresh();
+				Thread.sleep(2000);			}
 		}
 		String[] arrSplit = casetxt.split("\\s");
 		String casetxt3 = arrSplit[2];

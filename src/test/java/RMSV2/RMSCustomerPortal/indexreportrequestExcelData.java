@@ -28,7 +28,7 @@ public class indexreportrequestExcelData extends driverClass {
 	}
 
 	@Test(dataProvider = "ExcelData", dataProviderClass = IndexRequestExcelDataProvider.class, dependsOnMethods = { "login" })
-	public void PatientDetails(String firstName, String SSN, String dob, String streetAdd, String city,
+	public void IndexOnlyRequest(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum,String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest,String filetype) throws InterruptedException, IOException {
 		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);

@@ -31,7 +31,7 @@ public class singleProviderRequestExceldata extends driverClass {
 	}
 
 	@Test(dataProvider = "ExcelData", dataProviderClass = ProviderRequestExcelDataProvider.class, dependsOnMethods = { "login" })
-	public void PatientDetails(String firstName, String SSN, String dob, String streetAdd, String city,
+	public void ProviderRequest(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum,String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest,String filetype,String facilityName,String provider_state, String Provider_city, String rec_template,String img_template, String path_template) throws InterruptedException, IOException {
 		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);
