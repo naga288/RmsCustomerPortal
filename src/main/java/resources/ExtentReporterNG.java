@@ -16,6 +16,7 @@ public class ExtentReporterNG {
 	extent =new ExtentReports(); // object created for Extentreports class and used to generate an HTML report on the user-specified path
 	extent.attachReporter(reporter);
 	extent.setSystemInfo("Tester", "Naga");
+	
 	return extent;
 	}
 

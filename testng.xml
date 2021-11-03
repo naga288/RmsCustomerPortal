@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ReportIndexTestSuite">
+<suite name="Suite">
 <listeners>
 <listener class-name="resources.Listeners"></listener>
 </listeners>
-  <test name="Test">
+  <test name="Login">
     <classes>
 	<class name="RMSV2.RMSCustomerPortal.RMS_Login_out" />
-      <class name="RMSV2.RMSCustomerPortal.indexreportrequest"/> 
-    </classes>
+         </classes>
   </test> <!-- Test -->
+   <test name="IndexOnly">
+    <classes>
+	  <class name="RMSV2.RMSCustomerPortal.indexreportrequestExcelData"/> 
+    </classes>
+  </test> 
+   <test name="SingleLocation">
+    <classes>
+	        <class name="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata"/> 
+    </classes>
+  </test> 
+  
 </suite> <!-- Suite -->

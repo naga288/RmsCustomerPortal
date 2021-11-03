@@ -8,8 +8,6 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,13 +16,14 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+import pageObjects.loginPage;
+
 public class driverClass {
 	public  WebDriver driver;
 	public Properties prop;
-	public static Logger log=LogManager.getLogger();
 	public static String userdir=System.getProperty("user.dir");
 
-	public WebDriver intializedriver() throws IOException {
+	public WebDriver intializedriver() throws IOException, Exception {
 
 		 prop = new Properties();
 		FileInputStream fis = new FileInputStream(userdir+
@@ -62,13 +61,25 @@ public class driverClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("RMSv2URL"));
+		
+		loginpage:while(true) {
+			loginPage login=new loginPage(driver);
+			if(login.loginScreen().isDisplayed()) {
+break loginpage;				
+			}else {
+				Thread.sleep(2000);
+			}
+		}
+		
+		
 		return driver;
 	}
 
 	public String getScreenShotPath(String testCaseName, WebDriver driver) throws IOException {
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		String destinationFile=userdir+"\\reports\\"+testCaseName+".png";
-		FileUtils.copyFile(src, new File(destinationFile));
+		FileUtils.copyFile(src, new File(
+	destinationFile));
 		return destinationFile;
 
 	}

@@ -26,6 +26,8 @@ public class retreivalOptionsPage {
 
 	@FindBy(xpath = "//input[contains(@id,'txtAuth')]")
 	WebElement AuthPhy_txt;
+	
+	@FindBy(xpath="//select[contains(@id,'AuthPhysician')]") WebElement AuthPhy_selector;
 
 	@FindBy(xpath = "//select[contains(@id,'PurposeofRequest')]")
 	WebElement PurposeOfRequest;
@@ -38,6 +40,9 @@ public class retreivalOptionsPage {
 
 
 
+	public WebElement AuthPhy_selector() {
+		return AuthPhy_selector;
+	}
 	
 	
 

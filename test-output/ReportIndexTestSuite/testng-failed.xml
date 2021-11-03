@@ -6,10 +6,36 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="RMSV2.RMSCustomerPortal.RMS_Login_out">
+        <methods>
+          <include name="logout"/>
+          <include name="initialise"/>
+          <include name="browserclose"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- RMSV2.RMSCustomerPortal.RMS_Login_out -->
+      <class name="RMSV2.RMSCustomerPortal.singleProviderRequest">
+        <methods>
+          <include name="login"/>
+          <include name="ChooseRetrievalOptions"/>
+          <include name="browser"/>
+          <include name="PatientDetails"/>
+          <include name="searchCreatedRequest"/>
+          <include name="browserclose"/>
+          <include name="singleLocationProvider"/>
+          <include name="uploadfilesNext"/>
+        </methods>
+      </class> <!-- RMSV2.RMSCustomerPortal.singleProviderRequest -->
       <class name="RMSV2.RMSCustomerPortal.indexreportrequest">
         <methods>
+          <include name="PatientDetails"/>
+          <include name="searchrequest"/>
           <include name="browser"/>
-          <include name="indexOnlyRequest" invocation-numbers="0"/>
+          <include name="indexOnlyrequest"/>
+          <include name="ChooseRetrievalOptions"/>
+          <include name="login"/>
+          <include name="uploadfiles"/>
+          <include name="browserclose"/>
         </methods>
       </class> <!-- RMSV2.RMSCustomerPortal.indexreportrequest -->
     </classes>

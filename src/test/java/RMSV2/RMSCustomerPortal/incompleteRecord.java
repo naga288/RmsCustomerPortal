@@ -23,23 +23,20 @@ public class incompleteRecord extends driverClass{
 	
 	
 	@BeforeTest
-	public void browser() throws IOException {
+	public void browser() throws Exception {
 		driver=intializedriver();
-		log.info("Driver is initialised");
-	
+		
 	}
 	
 	@Test()
 	public void login() throws IOException, InterruptedException {
 		RMS_access_methods signin=new RMS_access_methods();
-		signin.login(driver, RMS_access_methods.username,  RMS_access_methods.password);
+		signin.login(driver);
 		
 	}
 	
 	@Test(dataProvider="getdata",dependsOnMethods= {"login"} )
 	public void indexOnlyRequest(String firstName, String SSN, String dob,String streetAdd,String city,String postalCode, String phnum  ) throws InterruptedException, IOException {
-		log.info("Logged in to RMS portal successfully");
-		RMS_request_methods req=new RMS_request_methods();
 		homePage home_page = new homePage(driver);
 		retreivalOptionsPage ret_page = new retreivalOptionsPage(driver);
 		patientProfilePage profile_page = new patientProfilePage(driver);
