@@ -2,13 +2,11 @@ package RMSV2.RMSCustomerPortal;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -20,6 +18,7 @@ import pageObjects.patientProfilePage;
 import pageObjects.previewPage;
 import pageObjects.providersPage;
 import pageObjects.retreivalOptionsPage;
+import pageObjects.templatePage;
 import pageObjects.uploadFilesPage;
 
 public class RMS_request_methods {
@@ -34,6 +33,7 @@ public class RMS_request_methods {
 	public static previewPage preview_page;
 	public static patientDigestPage patient_digest;
 	public static String userdir = System.getProperty("user.dir");
+	public static templatePage temp_page;
 
 	public String patientdemographics(WebDriver driver, String firstName, String SSN, String dob, String streetAdd,
 			String city, String postalCode, String phnum) throws InterruptedException, IOException {
@@ -49,7 +49,6 @@ public class RMS_request_methods {
 		// Now format the date
 		String date1 = dateFormat.format(date);
 		lastName = date1;
-		System.out.println(home_page.dahsboard().isDisplayed());
 		home_page.addpatient().click();
 		newpatientblock: while (true) {
 			if (profile_page.demographics().isDisplayed()) {
@@ -100,7 +99,7 @@ public class RMS_request_methods {
 		profile_page.phonenumber().sendKeys(phnum);
 
 		Select dept = new Select(profile_page.department());
-		dept.selectByVisibleText("Dept A");
+		dept.selectByVisibleText("Bronx New Dep B");
 		profile_page.next().click();
 		List<WebElement> errelements = profile_page.errors();
 
@@ -133,7 +132,13 @@ public class RMS_request_methods {
 		Select rec_need = new Select(retrieval_page.NeedFor());
 		rec_need.selectByVisibleText(RecordsNeededFor);
 
-		retrieval_page.AuthPhy_txt().sendKeys(AuthorizingPhysician);
+		if(retrieval_page.AuthPhy_selector().isDisplayed()) {
+			Select Auth_phy=new Select(retrieval_page.AuthPhy_selector());
+			Auth_phy.selectByVisibleText(AuthorizingPhysician);
+		}else {
+			retrieval_page.AuthPhy_txt().sendKeys(AuthorizingPhysician);
+			
+		}
 
 		Select Purpose_Of_Request = new Select(retrieval_page.PurposeOfRequest());
 		Purpose_Of_Request.selectByVisibleText(PurposeOfRequest);
@@ -198,6 +203,19 @@ public class RMS_request_methods {
 			}
 		}
 
+		provider_page = upload_files.getNext();
+		providerscreen: while (true) {
+			if (provider_page.getRecentProviders().isDisplayed()) {
+				System.out.println("Provider screen is displayed");
+				break providerscreen;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+
+	}
+
+	public void uploadfilesNext(WebDriver driver) throws InterruptedException, IOException {
 		provider_page = upload_files.getNext();
 		providerscreen: while (true) {
 			if (provider_page.getRecentProviders().isDisplayed()) {
@@ -277,8 +295,8 @@ public class RMS_request_methods {
 	public String searchCreatedRequest(WebDriver driver) throws InterruptedException {
 		PatientName = firstName + lastName;
 		dashboard: while (true) {
-			home_page.dahsboard().click();
-			if (home_page.dahsboard().isDisplayed()) {
+			home_page.dashboardbutton().click();
+			if (home_page.RecordsTabPage().isDisplayed()) {
 				System.out.println("Dashboard page is displayed");
 				break dashboard;
 			} else {
@@ -315,7 +333,8 @@ public class RMS_request_methods {
 			if(casetxt.contains("Case")) {
 				break getcase;
 			}else {
-				Thread.sleep(1000);
+				driver.navigate().refresh();
+				Thread.sleep(5000);
 			}
 		}
 		String[] arrSplit = casetxt.split("\\s");
@@ -325,17 +344,18 @@ public class RMS_request_methods {
 		cno.deleteCharAt(cno.length() - 1);
 		// prints the string after deleting the character
 		String caseno = cno.toString();
+		System.out.println("Case No for "+PatientName+" request is :"+caseno);
 		return caseno;
 	}
 
-	public void singleProvider(WebDriver driver, String facilityName, String state, String city)
+	public void singleLocationProvider(WebDriver driver, String facilityName, String state, String city, String rec_template, String img_template,String  path_template, String LocationType)
 			throws InterruptedException {
-
+		temp_page=new templatePage(driver);
+		preview_page = new previewPage(driver);
+		
 		provider_page.getRecentProviders().click();
 		RecentProvidersList: while (true) {
-			if (driver.findElement(By
-					.xpath("//div[contains(@id,'RecentProvidersList')]//tbody/tr[contains(@id,'RecentProvidersList')]"))
-					.isDisplayed()) {
+			if (provider_page.getRecentProvidersList().isDisplayed()) {
 				System.out.println("Waiting fro the recent providers");
 				break RecentProvidersList;
 			} else {
@@ -344,80 +364,171 @@ public class RMS_request_methods {
 		}
 
 		List<WebElement> providers_list = provider_page.getRecentProvidersName();
-		int listcount = providers_list.size();
-		
-		/*ArrayList<WebElement> a = new ArrayList<WebElement>();
-		a.addAll(provider_page.getRecentProvidersName());
-		
-		int i=0;
-		while(i<=a.size()) {
-			if(a.get(i).getText().equalsIgnoreCase(facilityName)) {
-				a.get(i).click();
-			}else {
-				i++;
-			}
-		}*/
-		if(listcount>0) {
-			System.out.println("Going through the recent providers");
+		//int listcount = providers_list.size();
+			facilityloop:while(true) {	
 				for(WebElement option:providers_list) {
 					if(option.getText().equalsIgnoreCase(facilityName)) {
-						System.out.println("if provider");
 						option.click();
 						templateloop:while(true) {
 							if(provider_page.ManageTemplates().isDisplayed()) {
+								if(LocationType=="RecordsLocation") {
+									recordtemplate(driver, rec_template);
+								}else if(LocationType=="ImageLocation"){
+									imagetemplate(driver,img_template);
+								}else if(LocationType=="ImageLocation"){
+									pathologytemplate(driver,path_template);	
+								}
 								break templateloop;
 							}else {
 								Thread.sleep(1000);
 							}
 					}	
+					 break	facilityloop;	
+			}
+
+			}
 				
 			}
+		
+		
+		String note="test notes";
+		temp_page.notesarea().click();
+		temp_page.notesarea().sendKeys(note);
+		temp_page.NextButton().click();
+
+		retrievalproviders:while(true) {
+			if(provider_page.getSelectedProviders().size()>0) {
+				provider_page.NextButton().click();
+				break retrievalproviders;
+			}else {
+				Thread.sleep(1000);
 			}
-		}else {
-			System.out.println("else loop");
-				provider_page.getclose();
-				
-			}
-		try {
-			System.out.println("try catch loop loop");
-			
-			Thread.sleep(1000);
-			provider_page.getclose();
-			
-		}catch(NoSuchElementException e) {
-			
 		}
 
-		providerSearch(driver, facilityName,  state,  city);
-		
-		
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView();", preview_page.getFooter());
+
+		submitrequest: while (true) {
+			if (preview_page.getSubmitRequest().isDisplayed()) {
+
+				preview_page.getSubmitRequest().click();
+				System.out.println("Reports For Indexing request is submitted");
+				break submitrequest;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+
+		donerequest: while (true) {
+			if (preview_page.getDone().isDisplayed()) {
+				preview_page.getDone().click();
+				break donerequest;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+
+		dashboard: while (true) {
+			if (home_page.RecordsTabPage().isDisplayed()) {
+				break dashboard;
+			} else {
+				Thread.sleep(1000);
+			}
+		}
+
 	}
 	
-	public void providerSearch(WebDriver driver,String facilityName, String state, String city) throws InterruptedException {
-		System.out.println("searhcing the name");
-		provider_page.getProviderNameField().sendKeys(facilityName);
+	public void recordtemplate(WebDriver driver, String rec_template) throws InterruptedException {
+	Select rectemplate=new Select(temp_page.RecTemplateOptions());
+	rectemplate.selectByVisibleText(rec_template);
+	temp_page.ApplyRecordsTemlate().click();
+	templateload:while(true) {
+		if(temp_page.getRecordItems().size()>0) {
+			System.out.println("Records template items loaded");
 
-		Select state_name = new Select(provider_page.getStateDropDown());
-		state_name.selectByVisibleText(state);
-
-		provider_page.getcity().sendKeys(city);
-		provider_page.getSearch().click();
-
-		providerresults: while (true) {
-			if (provider_page.getresults().isDisplayed()) {
-				List<WebElement> providers = provider_page.getproviderResults();
-				for (WebElement provider : providers) {
-					if (provider.getText().equalsIgnoreCase(facilityName)) {
-						provider.click();
-						break providerresults;
-					} else {
-						Thread.sleep(1000);
-					}
-				}
-			}
-
+			break templateload;
+		}else {
+			Thread.sleep(2000);
 		}
 	}
+	
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    WebElement Element = temp_page.footer();
+
+    js.executeScript("arguments[0].scrollIntoView();", Element);
+	
+	}
+	
+	public void imagetemplate(WebDriver driver, String img_template) throws InterruptedException {
+		
+	
+    JavascriptExecutor js = (JavascriptExecutor) driver;
+    WebElement Element = driver.findElement(By.linkText("Manage Templates"));
+    js.executeScript("arguments[0].scrollIntoView();", Element);
+    Select imgtemplate=new Select(temp_page.ImgTemplateOptions());
+	imgtemplate.selectByVisibleText(img_template);
+	temp_page.ApplyImagesTemlate().click();
+	templateload:while(true) {
+		if(temp_page.getImageItems().size()>0) {
+			System.out.println("image template items loaded");
+
+			break templateload;
+		}else {
+			Thread.sleep(2000);
+		}
+	}
+	
+
+	
+	}
+	
+	public void pathologytemplate(WebDriver driver, String path_template) throws InterruptedException {
+
+	    JavascriptExecutor js = (JavascriptExecutor) driver;
+	    WebElement Element = temp_page.footer();
+
+	    js.executeScript("arguments[0].scrollIntoView();", Element);
+
+	Select rectemplate=new Select(temp_page.PathTemplateOptions());
+	rectemplate.selectByVisibleText(path_template);
+	temp_page.ApplyPathologyTemlate().click();
+	templateload:while(true) {
+		if(temp_page.getPathologyItems().size()>0) {
+			System.out.println("Pathology template items loaded");
+
+			break templateload;
+		}else {
+			Thread.sleep(2000);
+		}
+	}
+	
+
+	
+	}
+	
+//	public void providerSearch(WebDriver driver,String facilityName, String state, String city) throws InterruptedException {
+//		System.out.println("searhcing the name");
+//		provider_page.getProviderNameField().sendKeys(facilityName);
+//		Select state_name = new Select(provider_page.getStateDropDown());
+//		state_name.selectByVisibleText(state);
+//		provider_page.getcity().sendKeys(city);
+//		provider_page.getSearch().click();
+//
+//		providerresults: while (true) {
+//			if (provider_page.getresults().isDisplayed()) {
+//				List<WebElement> providers = provider_page.getproviderResults();
+//				for (WebElement provider : providers) {
+//					if (provider.getText().equalsIgnoreCase(facilityName)) {
+//						provider.click();
+//						break providerresults;
+//					} else {
+//						Thread.sleep(1000);
+//					}
+//				}
+//			}
+//
+//		}
+//	}
 
 		
 	

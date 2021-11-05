@@ -31,7 +31,7 @@ public class providersPage {
 	@FindBy(xpath = "//a[contains(@id,'btnSubmit')]")
 	WebElement Submit_Next;
 	
-	@FindBy(xpath="//div[contains(@id,'RecentProvidersList')]//tbody/tr[contains(@id,'RecentProvidersList')]") List<WebElement> RecentProvidersList;
+	@FindBy(xpath="//div[contains(@id,'RecentProvidersList')]//tbody/tr[contains(@id,'RecentProvidersList')]") WebElement RecentProvidersList;
 	@FindBy(xpath="//div[contains(@id,'RecentProvidersList')]//tbody/tr[contains(@id,'RecentProvidersList')]/td/a") List<WebElement> RecentProvidersName;
 	@FindBy(css="a[class=rwCloseButton]") WebElement close;
 	
@@ -46,10 +46,19 @@ public class providersPage {
 @FindBy(xpath="//div[@class='results-content']") WebElement results;
 @FindBy(xpath="//div[@class='providers-grid']//div/table[@role='grid']//tr/td/a") List<WebElement> providerResults;
 @FindBy(xpath="//a[contains(text(),'Manage Templates')]") WebElement ManageTemplates;
+@FindBy(xpath="//table[contains(@id,'rgProviders')]/tbody/tr") List<WebElement> SelectedProviders;
+@FindBy(xpath="//a[contains(@id,'btnSubmit')]") WebElement NextButton;
 
+
+public WebElement NextButton() {
+	return NextButton;
+}
 
 public WebElement ManageTemplates() {
 	return ManageTemplates;
+}
+public List<WebElement> getSelectedProviders() {
+	return SelectedProviders;
 }
 
 public List<WebElement> getRecentProvidersName() {
@@ -86,7 +95,7 @@ public WebElement getStateDropDown() {
 	}
 	
 
-	public List<WebElement> getRecentProvidersList() {
+	public WebElement getRecentProvidersList() {
 		return RecentProvidersList;
 	}
 	

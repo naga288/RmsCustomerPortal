@@ -9,30 +9,30 @@ import org.testng.annotations.Test;
 import resources.dataproviders;
 import resources.driverClass;
 
+
 public class singleProviderRequest extends driverClass {
 	public static WebDriver driver;
 	RMS_request_methods request = new RMS_request_methods();
+	ProviderRequestMethods Provider_request = new ProviderRequestMethods();
 
 //public static Logger log=LogManager.getLogger("INdexOnlyRequest");
 
 	@BeforeTest
-	public void browser() throws IOException {
+	public void browser() throws Exception {
 		driver = intializedriver();
-		log.info("Driver is initialised");
-
+	
 	}
 
 	@Test(priority = 1)
 	public void login() throws IOException, InterruptedException {
 		RMS_access_methods signin = new RMS_access_methods();
-		signin.login(driver, RMS_access_methods.username, RMS_access_methods.password);
+		signin.login(driver);
 
 	}
 
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = { "login" })
 	public void PatientDetails(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum) throws InterruptedException, IOException {
-		log.info("Logged in to RMS portal successfully");
 		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);
 
 	}
@@ -40,33 +40,32 @@ public class singleProviderRequest extends driverClass {
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = { "PatientDetails" })
 	public void ChooseRetrievalOptions(String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest) throws InterruptedException, IOException {
-		log.info("Choosing the retrieval options");
 		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
 	}
 
-	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = {
+	@Test( dependsOnMethods = {
 			"ChooseRetrievalOptions" })
-	public void uploadfiles(String filetype) throws InterruptedException, IOException {
-		log.info("Uploading the files");
-		request.uploadfiles(driver, filetype);
+	public void uploadfilesNext() throws InterruptedException, IOException {
+		request.uploadfilesNext(driver);
 	}
 
 	@Test(dataProvider = "testData", dataProviderClass = dataproviders.class, dependsOnMethods = {
-	"uploadfiles" })
-	public void singleProviderReq(String facilityName,String state, String city) throws InterruptedException {
-		request.singleProvider(driver, facilityName, state, city);
+	"uploadfilesNext" })
+	public void singleLocationProvider(String facilityName,String state, String city, String rec_template,String img_template, String path_template, String LocationType) throws InterruptedException {
+		Provider_request.singleLocationProvider(driver, facilityName, state, city, rec_template, img_template, path_template,LocationType);
 		
 	}
-	/*@Test(dependsOnMethods = { "singleProviderReq" })
-	public void searchrequest() throws InterruptedException, IOException {
-		log.info("Search created request");
-		String caseno = request.searchCreatedRequest(driver);
-		System.out.println("Case no : " + caseno);
-	}*/
 	
-//	@AfterTest
-//	public void browserclose() {
-//		driver.close();
-//	}
+	@Test(dependsOnMethods = {"singleLocationProvider" })
+	public void searchCreatedRequest() throws InterruptedException {
+		request.searchCreatedRequest(driver);
+	}
+	
+	
+	
+@AfterTest
+	public void browserclose() {
+		driver.close();
+	}
 
 }

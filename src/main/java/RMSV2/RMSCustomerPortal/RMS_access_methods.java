@@ -12,40 +12,45 @@ import resources.driverClass;
 
 public class RMS_access_methods extends driverClass{
 	
-	//public static Logger log=LogManager.getLogger(RMS_Login.class.getName());
+	//public static Logger log=Logger.getLogger("JavaTestLogger");
 
-	public static String username="ehgt.test4";
+	public static String username="Zarif.Mohd";
 	public static String password="Kick4Thy";
 
 	public static homePage h_page;
-	
-	public void login(WebDriver driver, String username,String password) throws IOException, InterruptedException {
-		loginPage log_in = new loginPage(driver);
-		
+	public static loginPage log_in;
+	public void login(WebDriver driver) throws IOException, InterruptedException {
+		 log_in = new loginPage(driver);
+		 h_page=new homePage(driver);
 System.out.println("login with Creds : Username:"+username+" & Password:" +password);
-log.info("login with Creds : Username:"+username+" & Password:" +password);
-		login: while (true) {
-			if (log_in.loginScreen().isDisplayed()) {
-				log_in.username().sendKeys(username);
-				log_in.password().sendKeys(password);
-				 h_page=log_in.signin();
+//log.info("login with Creds : Username:"+username+" & Password:" +password);
+		try {
+			login: while (true) {
+				if (log_in.loginScreen().isDisplayed()) {
+					log_in.username().sendKeys(username);
+					log_in.password().sendKeys(password);
+					 log_in.signin().click();
+					 
 
-				break login;
-			} else {
-				//waits.WaitForElement(driver, log_in.loginScreen());			
-				Thread.sleep(1000);
-				}
+					break login;
+				} else {
+					//waits.WaitForElement(driver, log_in.loginScreen());			
+					Thread.sleep(1000);
+					}
+			}
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		dashboard:while(true) {
 			try {
 
 
-		if (h_page.dahsboard().isDisplayed()) {
+		if (h_page.RecordsTabPage().isDisplayed()) {
 			String user_text="Welcome "+username;
-			Assert.assertEquals(h_page.dahsboard().getText(),user_text);
-
-			System.out.println("RMS customer portal Login is succesfull for user: " + h_page.dahsboard().getText());
-			log.info("Login successful");
+Assert.assertTrue(h_page.username().getText().equalsIgnoreCase(user_text));
+			System.out.println("RMS customer portal Login is succesfull for user: " + h_page.username().getText());
+	//		log.info("Login successful");
 			break dashboard;
 		}else {
 			Thread.sleep(1000);
@@ -55,18 +60,14 @@ log.info("login with Creds : Username:"+username+" & Password:" +password);
 			System.out.println(e);
 		}
 		}
-		/*
-		 * else if(log_in.login_errmsg().isDisplayed()) {
-		 * System.out.println(log_in.login_errmsg().getText()); }
-		 */
 	}
 	public void logout(WebDriver driver) throws InterruptedException {
 	try {	
 		logoutloop:while(true) {
-		if (h_page.dahsboard().isDisplayed()) {
+		if (h_page.RecordsTabPage().isDisplayed()) {
 h_page.UserIcon().click();
 h_page.Logout().click();
-			if(h_page.dahsboard().isDisplayed()) {
+			if(log_in.loginScreen().isDisplayed()) {
 				System.out.println("Logout is successful");
 				break logoutloop;
 			}
