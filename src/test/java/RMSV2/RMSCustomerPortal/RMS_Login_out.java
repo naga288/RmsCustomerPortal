@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import resources.ProviderRequestExcelDataProvider;
 import resources.driverClass;
 
 public class RMS_Login_out extends driverClass {
@@ -17,10 +18,10 @@ public class RMS_Login_out extends driverClass {
 		driver=intializedriver();
 		
 	}
-	@Test(priority=1)
-	public void login() throws IOException, InterruptedException {
-		RMS_access_methods signin=new RMS_access_methods();
-		signin.login(driver);
+	@Test(priority = 1,dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
+	public void login(String Env,String UserName,String Password) throws IOException, InterruptedException {
+		RMS_access_methods signin = new RMS_access_methods();
+		signin.login(driver,Env, UserName, Password);
 
 	}
 	

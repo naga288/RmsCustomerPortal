@@ -23,10 +23,10 @@ public class singleProviderRequestExceldata extends driverClass {
 	
 	}
 
-	@Test(priority = 1)
-	public void login() throws IOException, InterruptedException {
+	@Test(priority = 1,dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
+	public void login(String Env,String UserName,String Password) throws IOException, InterruptedException {
 		RMS_access_methods signin = new RMS_access_methods();
-		signin.login(driver);
+		signin.login(driver,Env, UserName, Password);
 
 	}
 

@@ -16,8 +16,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import pageObjects.loginPage;
-
 public class driverClass {
 	public  WebDriver driver;
 	public Properties prop;
@@ -60,16 +58,6 @@ public class driverClass {
 		 */
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get(prop.getProperty("RMSv2URL"));
-		
-		loginpage:while(true) {
-			loginPage login=new loginPage(driver);
-			if(login.loginScreen().isDisplayed()) {
-break loginpage;				
-			}else {
-				Thread.sleep(2000);
-			}
-		}
 		
 		
 		return driver;

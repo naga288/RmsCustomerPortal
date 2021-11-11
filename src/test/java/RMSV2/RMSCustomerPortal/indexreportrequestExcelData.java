@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import resources.IndexRequestExcelDataProvider;
+import resources.ProviderRequestExcelDataProvider;
 import resources.driverClass;
 
 public class indexreportrequestExcelData extends driverClass {
@@ -20,13 +21,12 @@ public class indexreportrequestExcelData extends driverClass {
 		
 	}
 
-	@Test(priority = 1)
-	public void login() throws IOException, InterruptedException {
+	@Test(priority = 1,dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
+	public void login(String Env,String UserName,String Password) throws IOException, InterruptedException {
 		RMS_access_methods signin = new RMS_access_methods();
-		signin.login(driver);
+		signin.login(driver,Env, UserName, Password);
 
 	}
-
 	@Test(dataProvider = "ExcelData", dataProviderClass = IndexRequestExcelDataProvider.class, dependsOnMethods = { "login" })
 	public void IndexOnlyRequest(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum,String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,

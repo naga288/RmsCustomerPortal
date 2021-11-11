@@ -28,7 +28,7 @@ public class ProviderRequestMethods2 {
 		provider_page.getRecentProviders().click();
 		RecentProvidersList: while (true) {
 			if (provider_page.getRecentProvidersList().isDisplayed()) {
-				System.out.println("Waiting fro the recent providers");
+				
 				break RecentProvidersList;
 			} else {
 				Thread.sleep(1000);
@@ -43,25 +43,23 @@ public class ProviderRequestMethods2 {
 						option.click();
 						templateloop:while(true) {
 							if(provider_page.ManageTemplates().isDisplayed()) {
-								System.out.println("Template page is displayed");
+				//				System.out.println("Template page is displayed");
 								if(rec_template!=null && img_template.isEmpty() && path_template.isEmpty() ) {
-									System.out.println("Record template");
+					//				System.out.println("Record template");
 									recordtemplate(driver, rec_template);
 								}else if(rec_template.isEmpty() && img_template!=null && path_template.isEmpty()){
-									System.out.println("image template");
+						//			System.out.println("image template");
 									imagetemplate(driver,img_template);
 								}else if(rec_template.isEmpty() && img_template.isEmpty() && path_template!=null) {
-									System.out.println("path template");
+							//		System.out.println("path template");
 									pathologytemplate(driver,path_template);
 									
 								}else if(rec_template!=null && img_template!=null && path_template!=null) {
-									System.out.println("All templates");
+								//	System.out.println("All templates");
 									recordtemplate(driver, rec_template);
 									imagetemplate(driver,img_template);
 									pathologytemplate(driver,path_template);	
 									
-								}else if(rec_template.isBlank()) {
-									System.out.println("rec template is empty");
 								}else {
 									System.out.println("Issue with data");
 								}
@@ -133,7 +131,7 @@ public class ProviderRequestMethods2 {
 	temp_page.ApplyRecordsTemlate().click();
 	templateload:while(true) {
 		if(temp_page.getRecordItems().size()>0) {
-			System.out.println("Records template items loaded");
+//			System.out.println("Records template items loaded");
 
 			break templateload;
 		}else {

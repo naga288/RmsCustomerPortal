@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import pageObjects.homePage;
 import pageObjects.patientProfilePage;
 import pageObjects.retreivalOptionsPage;
+import resources.ProviderRequestExcelDataProvider;
 import resources.driverClass;
 
 public class incompleteRecord extends driverClass{
@@ -27,14 +28,12 @@ public class incompleteRecord extends driverClass{
 		driver=intializedriver();
 		
 	}
-	
-	@Test()
-	public void login() throws IOException, InterruptedException {
-		RMS_access_methods signin=new RMS_access_methods();
-		signin.login(driver);
-		
+	@Test(priority = 1,dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
+	public void login(String Env,String UserName,String Password) throws IOException, InterruptedException {
+		RMS_access_methods signin = new RMS_access_methods();
+		signin.login(driver,Env, UserName, Password);
+
 	}
-	
 	@Test(dataProvider="getdata",dependsOnMethods= {"login"} )
 	public void indexOnlyRequest(String firstName, String SSN, String dob,String streetAdd,String city,String postalCode, String phnum  ) throws InterruptedException, IOException {
 		homePage home_page = new homePage(driver);

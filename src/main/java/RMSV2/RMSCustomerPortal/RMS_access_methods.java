@@ -14,21 +14,21 @@ public class RMS_access_methods extends driverClass{
 	
 	//public static Logger log=Logger.getLogger("JavaTestLogger");
 
-	public static String username="Zarif.Mohd";
-	public static String password="Kick4Thy";
 
 	public static homePage h_page;
 	public static loginPage log_in;
-	public void login(WebDriver driver) throws IOException, InterruptedException {
+	public void login(WebDriver driver, String Env,String UserName,String Password) throws IOException, InterruptedException {
 		 log_in = new loginPage(driver);
 		 h_page=new homePage(driver);
-System.out.println("login with Creds : Username:"+username+" & Password:" +password);
+System.out.println("login with Creds : Username:"+UserName+" & Password:" +Password);
 //log.info("login with Creds : Username:"+username+" & Password:" +password);
+driver.get(Env);
+
 		try {
 			login: while (true) {
 				if (log_in.loginScreen().isDisplayed()) {
-					log_in.username().sendKeys(username);
-					log_in.password().sendKeys(password);
+					log_in.username().sendKeys(UserName);
+					log_in.password().sendKeys(Password);
 					 log_in.signin().click();
 					 
 
@@ -47,7 +47,7 @@ System.out.println("login with Creds : Username:"+username+" & Password:" +passw
 
 
 		if (h_page.RecordsTabPage().isDisplayed()) {
-			String user_text="Welcome "+username;
+			String user_text="Welcome "+UserName;
 Assert.assertTrue(h_page.username().getText().equalsIgnoreCase(user_text));
 			System.out.println("RMS customer portal Login is succesfull for user: " + h_page.username().getText());
 	//		log.info("Login successful");
