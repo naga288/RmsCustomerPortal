@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-11T10:52:11 IST" name="Default suite" finished-at="2021-11-11T11:03:15 IST" duration-ms="664704">
+  <suite started-at="2021-11-14T12:29:50 IST" name="Default suite" finished-at="2021-11-14T12:40:18 IST" duration-ms="627521">
     <groups>
     </groups>
-    <test started-at="2021-11-11T10:52:11 IST" name="Default test" finished-at="2021-11-11T11:03:15 IST" duration-ms="664704">
+    <test started-at="2021-11-14T12:29:50 IST" name="Default test" finished-at="2021-11-14T12:40:18 IST" duration-ms="627521">
       <class name="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata">
-        <test-method is-config="true" signature="browser()[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T10:52:11 IST" name="browser" finished-at="2021-11-11T10:52:13 IST" duration-ms="2700" status="PASS">
+        <test-method is-config="true" signature="browser()[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-14T12:29:50 IST" name="browser" finished-at="2021-11-14T12:29:52 IST" duration-ms="1950" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browser -->
-        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T10:52:15 IST" name="login" data-provider="RMSAccess" finished-at="2021-11-11T10:53:15 IST" duration-ms="60316" status="PASS">
+        <test-method signature="login(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-14T12:29:53 IST" name="login" data-provider="RMSAccess" finished-at="2021-11-14T12:31:15 IST" duration-ms="81697" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -32,94 +32,54 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T10:53:15 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-11T10:57:43 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="267259" status="PASS">
+        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-14T12:31:15 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-14T12:36:32 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="316164" status="PASS">
           <params>
             <param index="0">
-              <value>
-                <![CDATA[Naga]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[979879879]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1/7/2021]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Test]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[New York]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[10001]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[9798798797]]>
-              </value>
-            </param>
-            <param index="7">
               <value>
                 <![CDATA[11/15/2021]]>
               </value>
             </param>
-            <param index="8">
-              <value>
-                <![CDATA[Appointment]]>
-              </value>
-            </param>
-            <param index="9">
+            <param index="1">
               <value>
                 <![CDATA[Chiranjivi, Konidela]]>
               </value>
             </param>
-            <param index="10">
-              <value>
-                <![CDATA[New Patient Consultation]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Records]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[360 TRUCKING LLC]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Illinois]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[Chicago Ridge]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[Records Template]]>
-              </value>
-            </param>
-            <param index="16">
+            <param index="2">
               <value>
                 <![CDATA[]]>
               </value>
             </param>
-            <param index="17">
+            <param index="3">
+              <value>
+                <![CDATA[Records]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[360 TRUCKING LLC]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Illinois]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Chicago Ridge]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Records Template]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="9">
               <value>
                 <![CDATA[]]>
               </value>
@@ -128,295 +88,63 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProviderRequest -->
-        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T10:57:43 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-11T10:59:12 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="89418" status="PASS">
+        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-14T12:36:32 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-14T12:40:17 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="225644" status="PASS">
           <params>
             <param index="0">
-              <value>
-                <![CDATA[Nagi]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[979879999]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1/7/2021]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Test]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[New York]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[10001]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[9798798798]]>
-              </value>
-            </param>
-            <param index="7">
               <value>
                 <![CDATA[11/15/2021]]>
               </value>
             </param>
-            <param index="8">
-              <value>
-                <![CDATA[Review]]>
-              </value>
-            </param>
-            <param index="9">
+            <param index="1">
               <value>
                 <![CDATA[Abhinav, Kundra]]>
               </value>
             </param>
-            <param index="10">
-              <value>
-                <![CDATA[Follow Up Visit]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Records]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[360 TRUCKING LLC]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Illinois]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[Chicago Ridge]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="16">
-              <value>
-                <![CDATA[Images template]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProviderRequest -->
-        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T10:59:12 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-11T11:00:56 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="103644" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Anil]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[979879888]]>
-              </value>
-            </param>
             <param index="2">
               <value>
-                <![CDATA[1/7/2021]]>
+                <![CDATA[Yes]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Test]]>
+                <![CDATA[Records]]>
               </value>
             </param>
             <param index="4">
               <value>
-                <![CDATA[New York]]>
+                <![CDATA[360 TRUCKING LLC]]>
               </value>
             </param>
             <param index="5">
               <value>
-                <![CDATA[10001]]>
+                <![CDATA[Illinois]]>
               </value>
             </param>
             <param index="6">
               <value>
-                <![CDATA[9798798799]]>
+                <![CDATA[Chicago Ridge]]>
               </value>
             </param>
             <param index="7">
               <value>
-                <![CDATA[11/15/2021]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Appointment]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Farhan, Akhtar]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Patient Evaluation]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Records]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[360 TRUCKING LLC]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Illinois]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[Chicago Ridge]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
                 <![CDATA[]]>
               </value>
             </param>
-            <param index="16">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-            <param index="17">
-              <value>
-                <![CDATA[Pathology template]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProviderRequest -->
-        <test-method signature="ProviderRequest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T11:00:56 IST" name="ProviderRequest" data-provider="ExcelData" finished-at="2021-11-11T11:03:15 IST" depends-on-methods="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata.login" duration-ms="139046" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Anand]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[979879889]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[1/7/2021]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Test]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[New York]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[10001]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[9798798799]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[11/15/2021]]>
-              </value>
-            </param>
             <param index="8">
-              <value>
-                <![CDATA[Appointment]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Farhan, Akhtar]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[Patient Evaluation]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[Records]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[360 TRUCKING LLC]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Illinois]]>
-              </value>
-            </param>
-            <param index="14">
-              <value>
-                <![CDATA[Chicago Ridge]]>
-              </value>
-            </param>
-            <param index="15">
-              <value>
-                <![CDATA[Records Template]]>
-              </value>
-            </param>
-            <param index="16">
               <value>
                 <![CDATA[Images template]]>
               </value>
             </param>
-            <param index="17">
+            <param index="9">
               <value>
-                <![CDATA[Pathology template]]>
+                <![CDATA[]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ProviderRequest -->
-        <test-method is-config="true" signature="browserclose()[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-11T11:03:15 IST" name="browserclose" finished-at="2021-11-11T11:03:15 IST" duration-ms="558" status="PASS">
+        <test-method is-config="true" signature="browserclose()[pri:0, instance:RMSV2.RMSCustomerPortal.singleProviderRequestExceldata@52b1beb6]" started-at="2021-11-14T12:40:17 IST" name="browserclose" finished-at="2021-11-14T12:40:18 IST" duration-ms="562" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserclose -->

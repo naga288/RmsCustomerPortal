@@ -31,8 +31,8 @@ public class indexreportrequestExcelData extends driverClass {
 	public void IndexOnlyRequest(String firstName, String SSN, String dob, String streetAdd, String city,
 			String postalCode, String phnum,String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
 			String PurposeOfRequest,String filetype) throws InterruptedException, IOException {
-		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);
-		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
+		request.patientdemographics(driver);
+		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor);
 		request.uploadfiles(driver, filetype);
 		request.indexOnlyrequest(driver);
 		request.searchCreatedRequest(driver);

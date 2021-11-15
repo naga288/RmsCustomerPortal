@@ -22,8 +22,16 @@ import pageObjects.templatePage;
 import pageObjects.uploadFilesPage;
 
 public class RMS_request_methods2 {
-	public static String first_Name;
+	public static String first_Name="AutoTest";
 	public static String lastName;
+	public static String SSN="979879999";
+	public static String dob="1/7/1990";
+	public static String streetAdd="TestAdd";
+	public static String city="New York";
+	public static String postalCode="10001";
+	public static String phnum="9798798797";
+	public static String RecordsNeededFor="Appointment";
+	public static String PurposeOfRequest="New Patient Consultation";	
 	public static String PatientName;
 	public static homePage home_page;
 	public static patientProfilePage profile_page;
@@ -37,8 +45,7 @@ public class RMS_request_methods2 {
 	
 	
 	
-	public String patientdemographics(WebDriver driver, String firstName, String SSN, String dob, String streetAdd,
-			String city, String postalCode, String phnum) throws InterruptedException, IOException {
+	public String patientdemographics(WebDriver driver) throws InterruptedException, IOException {
 	
 		home_page = new homePage(driver);
 		retrieval_page = new retreivalOptionsPage(driver);
@@ -51,7 +58,7 @@ public class RMS_request_methods2 {
 		// Now format the date
 		String date1 = dateFormat.format(date);
 		lastName = date1;
-		first_Name=firstName;
+		first_Name="AutoTest";
 		home_page.addpatient().click();
 		newpatientblock: while (true) {
 			if (profile_page.demographics().isDisplayed()) {
@@ -127,8 +134,7 @@ public class RMS_request_methods2 {
 		return lastName;
 	}
 
-	public void chooseRetrievalOptions(WebDriver driver, String NeedByDate, String RecordsNeededFor,
-			String AuthorizingPhysician, String PurposeOfRequest) throws InterruptedException {
+	public void chooseRetrievalOptions(WebDriver driver, String NeedByDate, String AuthorizingPhysician ) throws InterruptedException {
 
 		retrieval_page.getNeedByDate().sendKeys(NeedByDate);
 

@@ -31,12 +31,15 @@ public class singleProviderRequestExceldata extends driverClass {
 	}
 
 	@Test(dataProvider = "ExcelData", dataProviderClass = ProviderRequestExcelDataProvider.class, dependsOnMethods = { "login" })
-	public void ProviderRequest(String firstName, String SSN, String dob, String streetAdd, String city,
-			String postalCode, String phnum,String NeedByDate, String RecordsNeededFor, String AuthorizingPhysician,
-			String PurposeOfRequest,String filetype,String facilityName,String provider_state, String Provider_city, String rec_template,String img_template, String path_template) throws InterruptedException, IOException {
-		request.patientdemographics(driver, firstName, SSN, dob, streetAdd, city, postalCode, phnum);
-		request.chooseRetrievalOptions(driver, NeedByDate, RecordsNeededFor, AuthorizingPhysician, PurposeOfRequest);
-		request.uploadfilesNext(driver);
+	public void ProviderRequest(String NeedByDate, String AuthorizingPhysician,
+			String IndexRequest, String filetype,String facilityName,String provider_state, String Provider_city, String rec_template,String img_template, String path_template) throws InterruptedException, IOException {
+		request.patientdemographics(driver);
+		request.chooseRetrievalOptions(driver, NeedByDate, AuthorizingPhysician);
+		if(IndexRequest.equalsIgnoreCase("Yes")) {
+			request.uploadfiles(driver, filetype);
+		}else {
+		request.uploadfilesNext(driver);}
+		
 		Provider_request.singleLocationProvider(driver, facilityName, provider_state, Provider_city, rec_template, img_template, path_template);
 		request.searchCreatedRequest(driver);
 
