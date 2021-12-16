@@ -1,6 +1,9 @@
 package RMSV2.RMSCustomerPortal;
 
 import java.io.IOException;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,6 +16,8 @@ public class singleProviderRequestExceldata extends driverClass {
 	public static WebDriver driver;
 	RMS_request_methods2 request = new RMS_request_methods2();
 	ProviderRequestMethods2 Provider_request = new ProviderRequestMethods2();
+	
+	public static Logger app_logs = Logger.getLogger("RMSRequest");
 
 //public static Logger log=LogManager.getLogger("INdexOnlyRequest");
 
@@ -24,9 +29,9 @@ public class singleProviderRequestExceldata extends driverClass {
 
 	@Test(priority = 1, dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
 	public void login(String Env, String UserName, String Password) throws IOException, InterruptedException {
+		PropertyConfigurator.configure("Log4j.properties");
 		RMS_access_methods signin = new RMS_access_methods();
 		signin.login(driver, Env, UserName, Password);
-
 	}
 
 	@Test(dataProvider = "ExcelData", dataProviderClass = ProviderRequestExcelDataProvider.class, dependsOnMethods = {
@@ -44,7 +49,9 @@ public class singleProviderRequestExceldata extends driverClass {
 
 		Provider_request.singleLocationProvider(driver, facilityName, provider_state, Provider_city, rec_template,
 				img_template, path_template);
+		app_logs.info("Locations added");
 		request.searchCreatedRequest(driver);
+		
 
 	}
 

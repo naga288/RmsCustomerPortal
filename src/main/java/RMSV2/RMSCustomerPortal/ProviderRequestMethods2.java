@@ -2,6 +2,7 @@ package RMSV2.RMSCustomerPortal;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ import pageObjects.providersPage;
 import pageObjects.templatePage;
 
 public class ProviderRequestMethods2 {
-	
+	public static Logger app_logs = Logger.getLogger("RMSRequest");
 	public static providersPage provider_page;
 	public static previewPage preview_page;
 	public static templatePage temp_page;
@@ -43,25 +44,20 @@ public class ProviderRequestMethods2 {
 						option.click();
 						templateloop:while(true) {
 							if(provider_page.ManageTemplates().isDisplayed()) {
-				//				System.out.println("Template page is displayed");
 								if(rec_template!=null && img_template.isEmpty() && path_template.isEmpty() ) {
-					//				System.out.println("Record template");
 									recordtemplate(driver, rec_template);
 								}else if(rec_template.isEmpty() && img_template!=null && path_template.isEmpty()){
-						//			System.out.println("image template");
 									imagetemplate(driver,img_template);
 								}else if(rec_template.isEmpty() && img_template.isEmpty() && path_template!=null) {
-							//		System.out.println("path template");
 									pathologytemplate(driver,path_template);
 									
 								}else if(rec_template!=null && img_template!=null && path_template!=null) {
-								//	System.out.println("All templates");
 									recordtemplate(driver, rec_template);
 									imagetemplate(driver,img_template);
 									pathologytemplate(driver,path_template);	
 									
 								}else {
-									System.out.println("Issue with data");
+									app_logs.info("Issue with data");
 								}
 								break templateloop;
 							}else {
@@ -131,7 +127,7 @@ public class ProviderRequestMethods2 {
 	temp_page.ApplyRecordsTemlate().click();
 	templateload:while(true) {
 		if(temp_page.getRecordItems().size()>0) {
-//			System.out.println("Records template items loaded");
+		app_logs.info("Records template items loaded");
 
 			break templateload;
 		}else {
@@ -142,7 +138,7 @@ public class ProviderRequestMethods2 {
 	
 	public void imagetemplate(WebDriver driver, String img_template) throws InterruptedException {
 		
-		System.out.println("Image template method");
+		
     JavascriptExecutor js = (JavascriptExecutor) driver;
     WebElement Element = temp_page.ApplyImagesTemlate();
     js.executeScript("arguments[0].scrollIntoView();", Element);
@@ -151,7 +147,7 @@ public class ProviderRequestMethods2 {
 	temp_page.ApplyImagesTemlate().click();
 	templateload:while(true) {
 		if(temp_page.getImageItems().size()>0) {
-			System.out.println("image template items loaded");
+			app_logs.info("image template items loaded");
 
 			break templateload;
 		}else {
@@ -161,7 +157,7 @@ public class ProviderRequestMethods2 {
 	}
 	
 	public void pathologytemplate(WebDriver driver, String path_template) throws InterruptedException {
-		System.out.println("pathology template method");
+		
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    WebElement Element = temp_page.footer();
 
@@ -172,7 +168,7 @@ public class ProviderRequestMethods2 {
 	temp_page.ApplyPathologyTemlate().click();
 	templateload:while(true) {
 		if(temp_page.getPathologyItems().size()>0) {
-			System.out.println("Pathology template items loaded");
+			app_logs.info("Pathology template items loaded");
 
 			break templateload;
 		}else {

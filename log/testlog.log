@@ -1,0 +1,129 @@
+2021-12-16 17:33:54,842 - RMSLogin -INFO - RMS customer portal Login is succesfull for user: Welcome Zarif.Mohd
+2021-12-16 17:33:54,849 - RMSRequest -INFO - logged in successfully
+2021-12-16 18:19:23,679 - RMSLogin -INFO - RMS customer portal Login is succesfull for user: Welcome Zarif.Mohd
+2021-12-16 18:19:23,682 - RMSRequest -INFO - logged in successfully
+2021-12-16 18:19:50,689 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 18:20:27,689 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 18:20:47,003 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 18:21:18,057 - RMSRequest -INFO - Locations added
+2021-12-16 18:21:18,058 - RMSRequest -INFO - Searching the request
+2021-12-16 18:21:21,536 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 18:21:25,522 - RMSRequest -INFO - Case No for AutoTest16-12-2021 18-19-23 request is :1505385
+2021-12-16 18:21:51,810 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 18:22:27,065 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 18:22:41,098 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 18:23:17,103 - RMSRequest -INFO - Locations added
+2021-12-16 18:23:17,103 - RMSRequest -INFO - Searching the request
+2021-12-16 18:23:18,037 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 18:23:21,502 - RMSRequest -INFO - Case No for AutoTest16-12-2021 18-21-28 request is :1505386
+2021-12-16 18:32:09,724 - RMSLogin -INFO - RMS customer portal Login is succesfull for user: Welcome Zarif.Mohd
+2021-12-16 18:32:09,727 - RMSRequest -INFO - logged in successfully
+2021-12-16 18:32:13,763 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 18:32:13,764 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 18:32:15,281 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 18:32:18,206 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 18:32:41,461 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 18:32:51,574 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 18:33:16,562 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 18:33:26,685 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 18:33:45,503 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 18:33:45,504 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 18:33:57,581 - RMSRequest -INFO - Records template items loaded
+2021-12-16 18:34:00,836 - RMSRequest -INFO - image template items loaded
+2021-12-16 18:34:06,077 - RMSRequest -INFO - Pathology template items loaded
+2021-12-16 18:34:25,238 - RMSRequest -INFO - Locations added
+2021-12-16 18:34:25,239 - RMSRequest -INFO - Searching the request
+2021-12-16 18:34:25,259 - RMSRequest -INFO - Dashboard page is displayed
+2021-12-16 18:34:28,408 - RMSRequest -INFO - Searching started
+2021-12-16 18:34:28,439 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 18:34:33,699 - RMSRequest -INFO - Case No for AutoTest16-12-2021 18-32-09 request is :1505387
+2021-12-16 18:34:36,684 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 18:34:36,685 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 18:34:37,916 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 18:34:40,192 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 18:34:55,904 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 18:35:06,012 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 18:35:30,377 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 18:35:40,496 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 18:35:43,088 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 18:35:43,088 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 18:35:50,218 - RMSRequest -INFO - Records template items loaded
+2021-12-16 18:35:52,715 - RMSRequest -INFO - image template items loaded
+2021-12-16 18:35:57,176 - RMSRequest -INFO - Pathology template items loaded
+2021-12-16 18:36:12,261 - RMSRequest -INFO - Locations added
+2021-12-16 18:36:12,262 - RMSRequest -INFO - Searching the request
+2021-12-16 18:36:12,280 - RMSRequest -INFO - Dashboard page is displayed
+2021-12-16 18:36:13,278 - RMSRequest -INFO - Searching started
+2021-12-16 18:36:13,297 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 18:36:15,746 - RMSRequest -INFO - Case No for AutoTest16-12-2021 18-34-35 request is :1505388
+2021-12-16 19:27:09,765 - RMSLogin -INFO - login with Creds : Username:Zarif.mohd & Password:Zarif@mohd
+2021-12-16 19:27:48,551 - RMSLogin -INFO - RMS customer portal Login is succesfull for user: Welcome Zarif.Mohd
+2021-12-16 19:27:52,855 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 19:27:52,855 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 19:27:55,817 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 19:27:59,827 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 19:28:19,740 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 19:28:29,980 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 19:28:57,422 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 19:29:07,495 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 19:29:17,119 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 19:29:17,119 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 19:29:30,239 - RMSRequest -INFO - Records template items loaded
+2021-12-16 19:29:35,051 - RMSRequest -INFO - image template items loaded
+2021-12-16 19:29:39,196 - RMSRequest -INFO - Pathology template items loaded
+2021-12-16 19:29:57,175 - RMSRequest -INFO - Locations added
+2021-12-16 19:29:57,178 - RMSRequest -INFO - Searching the request
+2021-12-16 19:29:57,233 - RMSRequest -INFO - Dashboard page is displayed
+2021-12-16 19:29:59,457 - RMSRequest -INFO - Searching started
+2021-12-16 19:29:59,524 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 19:30:04,862 - RMSRequest -INFO - Case No for AutoTest16-12-2021 19-27-48 request is :1505391
+2021-12-16 19:30:09,538 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 19:30:09,539 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 19:30:12,145 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 19:30:14,236 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 19:30:31,600 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 19:30:41,806 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 19:31:06,971 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 19:31:17,092 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 19:31:23,697 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 19:31:23,698 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 19:31:53,175 - RMSLogin -INFO - login with Creds : Username:Zarif.mohd & Password:Zarif@mohd
+2021-12-16 19:32:28,449 - RMSLogin -INFO - RMS customer portal Login is succesfull for user: Welcome Zarif.Mohd
+2021-12-16 19:32:32,668 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 19:32:32,668 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 19:32:36,204 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 19:32:44,295 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 19:33:05,246 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 19:33:15,459 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 19:33:42,638 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 19:33:52,752 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 19:34:01,301 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 19:34:01,302 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 19:34:16,767 - RMSRequest -INFO - Records template items loaded
+2021-12-16 19:34:21,064 - RMSRequest -INFO - image template items loaded
+2021-12-16 19:34:26,544 - RMSRequest -INFO - Pathology template items loaded
+2021-12-16 19:34:46,123 - RMSRequest -INFO - Locations added
+2021-12-16 19:34:46,127 - RMSRequest -INFO - Searching the request
+2021-12-16 19:34:46,197 - RMSRequest -INFO - Dashboard page is displayed
+2021-12-16 19:34:48,245 - RMSRequest -INFO - Searching started
+2021-12-16 19:34:48,281 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 19:34:54,629 - RMSRequest -INFO - Case No for AutoTest16-12-2021 19-32-28 request is :1505392
+2021-12-16 19:35:02,671 - RMSRequest -INFO - New patient request tab is opened
+2021-12-16 19:35:02,671 - RMSRequest -INFO - Checking for existing  Patient profiles
+2021-12-16 19:35:05,333 - RMSRequest -INFO - patient profiles tab is opened
+2021-12-16 19:35:08,201 - RMSRequest -INFO - Creating a new patient profile
+2021-12-16 19:35:26,693 - RMSRequest -INFO - Patient details are recorded and moved to retrieval options screen
+2021-12-16 19:35:36,838 - RMSRequest -INFO - CHOOSE RETRIEVAL OPTIONS Screen is displayed
+2021-12-16 19:36:01,290 - RMSRequest -INFO - Retrieval options are set and user moved to upload files section
+2021-12-16 19:36:11,399 - RMSRequest -INFO - Retreival options are set and user can upload the files in next screen 
+2021-12-16 19:36:15,271 - RMSRequest -INFO - Provider screen is displayed
+2021-12-16 19:36:15,272 - RMSRequest -INFO - No Files uploaded and user moved to providers section
+2021-12-16 19:36:25,260 - RMSRequest -INFO - Records template items loaded
+2021-12-16 19:36:31,998 - RMSRequest -INFO - image template items loaded
+2021-12-16 19:36:36,596 - RMSRequest -INFO - Pathology template items loaded
+2021-12-16 19:36:54,811 - RMSRequest -INFO - Locations added
+2021-12-16 19:36:54,813 - RMSRequest -INFO - Searching the request
+2021-12-16 19:36:54,855 - RMSRequest -INFO - Dashboard page is displayed
+2021-12-16 19:36:56,311 - RMSRequest -INFO - Searching started
+2021-12-16 19:36:56,356 - RMSRequest -INFO - Seacrh completed. No.of patient records found: 1
+2021-12-16 19:36:58,974 - RMSRequest -INFO - Case No for AutoTest16-12-2021 19-35-00 request is :1505394
