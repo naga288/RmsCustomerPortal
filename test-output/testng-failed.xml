@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="RMSV2.RMSCustomerPortal.indexreportrequestExcelData">
+      <class name="RMSV2.RMSCustomerPortal.singleProviderRequestExceldata">
         <methods>
-          <include name="browserclose"/>
           <include name="login"/>
           <include name="browser"/>
-          <include name="PatientDetails" invocation-numbers="2"/>
+          <include name="ProviderRequest" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- RMSV2.RMSCustomerPortal.indexreportrequestExcelData -->
+      </class> <!-- RMSV2.RMSCustomerPortal.singleProviderRequestExceldata -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

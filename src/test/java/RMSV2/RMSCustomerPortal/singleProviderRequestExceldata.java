@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 import resources.ProviderRequestExcelDataProvider;
 import resources.driverClass;
 
-
 public class singleProviderRequestExceldata extends driverClass {
 	public static WebDriver driver;
 	RMS_request_methods2 request = new RMS_request_methods2();
@@ -20,35 +19,35 @@ public class singleProviderRequestExceldata extends driverClass {
 	@BeforeTest
 	public void browser() throws Exception {
 		driver = intializedriver();
-	
+
 	}
 
-	@Test(priority = 1,dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
-	public void login(String Env,String UserName,String Password) throws IOException, InterruptedException {
+	@Test(priority = 1, dataProvider = "RMSAccess", dataProviderClass = ProviderRequestExcelDataProvider.class)
+	public void login(String Env, String UserName, String Password) throws IOException, InterruptedException {
 		RMS_access_methods signin = new RMS_access_methods();
-		signin.login(driver,Env, UserName, Password);
+		signin.login(driver, Env, UserName, Password);
 
 	}
 
-	@Test(dataProvider = "ExcelData", dataProviderClass = ProviderRequestExcelDataProvider.class, dependsOnMethods = { "login" })
-	public void ProviderRequest(String NeedByDate, String AuthorizingPhysician,
-			String IndexRequest, String filetype,String facilityName,String provider_state, String Provider_city, String rec_template,String img_template, String path_template) throws InterruptedException, IOException {
+	@Test(dataProvider = "ExcelData", dataProviderClass = ProviderRequestExcelDataProvider.class, dependsOnMethods = {
+			"login" })
+	public void ProviderRequest(String NeedByDate, String AuthorizingPhysician, String IndexRequest, String filetype,
+			String facilityName, String provider_state, String Provider_city, String rec_template, String img_template,
+			String path_template) throws InterruptedException, IOException {
 		request.patientdemographics(driver);
 		request.chooseRetrievalOptions(driver, NeedByDate, AuthorizingPhysician);
-		if(IndexRequest.equalsIgnoreCase("Yes")) {
+		if (IndexRequest.equalsIgnoreCase("Yes")) {
 			request.uploadfiles(driver, filetype);
-		}else {
-		request.uploadfilesNext(driver);}
-		
-		Provider_request.singleLocationProvider(driver, facilityName, provider_state, Provider_city, rec_template, img_template, path_template);
+		} else {
+			request.uploadfilesNext(driver);
+		}
+
+		Provider_request.singleLocationProvider(driver, facilityName, provider_state, Provider_city, rec_template,
+				img_template, path_template);
 		request.searchCreatedRequest(driver);
 
 	}
 
-	
-@AfterTest
-	public void browserclose() {
-		driver.close();
-	}
-
+	  @AfterTest public void browserclose() { driver.close(); }
+	 
 }

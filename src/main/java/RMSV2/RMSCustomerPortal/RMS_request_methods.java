@@ -230,7 +230,7 @@ public class RMS_request_methods {
 
 	public void indexOnlyrequest(WebDriver driver) throws InterruptedException {
 
-		System.out.println("Request indexing toggle is off? : " + provider_page.getIndexToggleOff().isDisplayed());
+		//System.out.println("Request indexing toggle is off? : " + provider_page.getIndexToggleOff().isDisplayed());
 
 		provider_page.getIndexOnlySwitch().click();
 
@@ -238,7 +238,7 @@ public class RMS_request_methods {
 
 			if (provider_page.getIndexToggleOn().isDisplayed()) {
 
-				System.out.println(provider_page.getIndexOnlySwitchLabel().getText() + " toggle is enabled");
+				//System.out.println(provider_page.getIndexOnlySwitchLabel().getText() + " toggle is enabled");
 				break switchloop;
 			} else {
 				try {

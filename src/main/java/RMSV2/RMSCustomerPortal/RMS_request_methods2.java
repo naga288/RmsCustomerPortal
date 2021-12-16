@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -140,15 +141,27 @@ public class RMS_request_methods2 {
 
 		Select rec_need = new Select(retrieval_page.NeedFor());
 		rec_need.selectByVisibleText(RecordsNeededFor);
-
-		if(retrieval_page.AuthPhy_selector().isDisplayed()) {
-			Select Auth_phy=new Select(retrieval_page.AuthPhy_selector());
-			Auth_phy.selectByVisibleText(AuthorizingPhysician);
-		}else {
-			retrieval_page.AuthPhy_txt().sendKeys(AuthorizingPhysician);
+try {
+	if(!driver.findElements(By.xpath("//select[contains(@id,'AuthPhysician')]")).isEmpty()) {
+			try {
+				Select Auth_phy=new Select(retrieval_page.AuthPhy_selector());
+				Auth_phy.selectByVisibleText(AuthorizingPhysician);
+			}
+		catch(NoSuchElementException e){
+		e.printStackTrace();		
+			}}
+			else {
+				try {
 			
-		}
+				retrieval_page.AuthPhy_txt().sendKeys(AuthorizingPhysician);
+				}		catch(NoSuchElementException e){
+					e.printStackTrace();		
+				}
 
+			}	}catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }	
 		Select Purpose_Of_Request = new Select(retrieval_page.PurposeOfRequest());
 		Purpose_Of_Request.selectByVisibleText(PurposeOfRequest);
 
